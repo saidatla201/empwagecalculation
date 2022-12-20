@@ -11,18 +11,24 @@ namespace empwagecalculation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to EmplyeeWageCompute");
-            const int IS_PRESENT = 1;
+            const int FULL_TIME = 1;
+            const int PART_TIME = 2;
             const int EMP_RATE_PER_HR = 20;
             int empHrs = 0, empWage = 0;
 
             //UC-1 Attendance
             Random random = new Random();
-            int employeeInput = random.Next(0, 2);
+            int employeeInput = random.Next(0, 3);
 
-            if (IS_PRESENT == employeeInput)
+            if (FULL_TIME == employeeInput)
             {
-                Console.WriteLine("Employee is present");
+                Console.WriteLine("Employee is fulltime");
                 empHrs = 8;
+            }
+            else if (PART_TIME == employeeInput)
+            {
+                Console.WriteLine("Employee is parttime");
+                empHrs = 4;
             }
             else
             {
@@ -30,11 +36,10 @@ namespace empwagecalculation
                 empHrs = 0;
             }
 
-            //UC-2 Dailywage calculation
+            //UC-2 Dailywage 
             empWage = EMP_RATE_PER_HR * empHrs;
-            Console.WriteLine("The daily wage is :" + empWage);
-         }
+            Console.WriteLine("Employee Wage is:" + empWage);
+        }
 
-
-    }
+    }  
 }
