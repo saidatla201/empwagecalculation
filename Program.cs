@@ -11,7 +11,21 @@ namespace empwagecalculation
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to employeewage calculation");
-            Console.ReadLine();
+            //Attendace (present or absent) 
+            int PRESENT = 1;
+
+            Random random = new Random();
+            int ATTENDANCE = random.Next(0, 2);
+
+            if (ATTENDANCE == PRESENT)
+            {
+                Console.WriteLine("Employee is Present");
+            }
+            else
+            {
+                Console.WriteLine("Employee is Absent");
+                Console.ReadLine();
+            }
         }
     }
 }
