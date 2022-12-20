@@ -14,34 +14,33 @@ namespace empwagecalculation
             const int FULL_TIME = 1;
             const int PART_TIME = 2;
             const int EMP_RATE_PER_HR = 20;
-            int empHrs = 0, empWage = 0;
+            const int MAX_WORKING_DAYS = 20;
+            int empHrs = 0, empWage = 0, totalWage = 0, day = 1;
 
             //UC-1 Attendance
-
             Random random = new Random();
-            int employeeInput = random.Next(0, 3);
-
-            //UC-4- Switch case
-
-            switch (employeeInput)
+            //UC-5
+            for (day = 1; day <= MAX_WORKING_DAYS; day++)
             {
-                case FULL_TIME:
-                    Console.WriteLine("Employee is fulltime");
-                    empHrs = 8;
-                    break;
-                case PART_TIME:
-                    Console.WriteLine("Employee is parttime");
-                    empHrs = 4;
-                    break;
-                default:
-                    Console.WriteLine("Employee is absent");
-                    break;
+                int employeeInput = random.Next(0, 3);
+                //UC-4- Switch case
+                switch (employeeInput)
+                {
+                    case FULL_TIME:
+                        empHrs = 8;
+                        break;
+                    case PART_TIME:
+                        empHrs = 4;
+                        break;
+                    default:
+                        empHrs = 0;
+                        break;
+                }
+                //UC-2 dailywise calculation
+                empWage = EMP_RATE_PER_HR * empHrs;
+                totalWage += empWage; 
             }
-            //UC-2 Daily wage calculation
-
-            empWage = EMP_RATE_PER_HR * empHrs;
-            Console.WriteLine("Employee Wage is:" + empWage);
-
+            Console.WriteLine("Total wage for {0} days:{1}", (day - 1), totalWage);
         }
     } 
 }
