@@ -30,9 +30,11 @@ namespace empwagecalculation
                 empHrs = 0;
             }
 
-            //UC-2 calculate EmployeeWage
+            //UC-2 Dailywage calculation
             empWage = EMP_RATE_PER_HR * empHrs;
-            Console.WriteLine("Employee Wage is:" + empWage);
-        }
+            Console.WriteLine("The daily wage is :" + empWage);
+         }
+
+
     }
 }
