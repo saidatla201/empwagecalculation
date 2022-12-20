@@ -10,22 +10,29 @@ namespace empwagecalculation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Welcome to employeewage calculation");
-            //Attendace (present or absent) 
-            int PRESENT = 1;
+            Console.WriteLine("Welcome to EmplyeeWageCompute");
+            const int IS_PRESENT = 1;
+            const int EMP_RATE_PER_HR = 20;
+            int empHrs = 0, empWage = 0;
 
+            //UC-1 Attendance
             Random random = new Random();
-            int ATTENDANCE = random.Next(0, 2);
+            int employeeInput = random.Next(0, 2);
 
-            if (ATTENDANCE == PRESENT)
+            if (IS_PRESENT == employeeInput)
             {
-                Console.WriteLine("Employee is Present");
+                Console.WriteLine("Employee is present");
+                empHrs = 8;
             }
             else
             {
-                Console.WriteLine("Employee is Absent");
-                Console.ReadLine();
+                Console.WriteLine("Employee is absent");
+                empHrs = 0;
             }
+
+            //UC-2 calculate EmployeeWage
+            empWage = EMP_RATE_PER_HR * empHrs;
+            Console.WriteLine("Employee Wage is:" + empWage);
         }
     }
 }
